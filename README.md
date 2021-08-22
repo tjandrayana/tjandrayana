@@ -12,7 +12,6 @@ I'm Tjandrayana Setiawan a Software Engineer and Technology Enthusiast.
 
 
 <br />
-<br />
 
 #### Profile Visits 
 
@@ -30,7 +29,6 @@ No Activity tracked this Week
 <!--END_SECTION:waka-->
 
 
-<br >
 <br >
 
 #### Github Stats
