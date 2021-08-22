@@ -32,8 +32,16 @@ No Activity tracked this Week
 <br >
 
 #### Github Stats
+<div>
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=tjandrayana&count_private=true&theme=tokyonight&show_icons=true&include_all_commits=true"/>
+</div>
+<br>
+<div>
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=tjandrayana&count_private=true&theme=tokyonight"/>
 
-![Tjandrayana's github stats](https://github-readme-stats.vercel.app/api?username=tjandrayana&count_private=true&theme=tokyonight&hide=contribs,prs)
+</div>
+
+
 
 </details>
 
