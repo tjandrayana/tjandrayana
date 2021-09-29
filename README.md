@@ -24,11 +24,9 @@ I'm Tjandrayana Setiawan a Software Engineer and Technology Enthusiast.
 
 <!--START_SECTION:waka-->
 ```text
-HCL          4 hrs 13 mins   ████████████░░░░░░░░░░░░░   48.10 % 
-YAML         2 hrs 44 mins   ███████▓░░░░░░░░░░░░░░░░░   31.21 % 
-Other        1 hr 29 mins    ████▒░░░░░░░░░░░░░░░░░░░░   17.02 % 
-Go           15 mins         ▓░░░░░░░░░░░░░░░░░░░░░░░░   03.02 % 
-Git Config   2 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.39 % 
+HCL      3 hrs 39 mins   █████████████▒░░░░░░░░░░░   52.72 % 
+YAML     1 hr 54 mins    ███████░░░░░░░░░░░░░░░░░░   27.50 % 
+Other    1 hr 22 mins    █████░░░░░░░░░░░░░░░░░░░░   19.74 % 
 ```
 <!--END_SECTION:waka-->
 
