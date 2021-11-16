@@ -24,7 +24,7 @@ I'm Tjandrayana Setiawan a Software Engineer and Technology Enthusiast.
 
 <!--START_SECTION:waka-->
 ```text
-
+Go      48 mins         █████████████████████████   99.89 % 
 ```
 <!--END_SECTION:waka-->
 
