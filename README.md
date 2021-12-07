@@ -24,8 +24,7 @@ I'm Tjandrayana Setiawan a Software Engineer and Technology Enthusiast.
 
 <!--START_SECTION:waka-->
 ```text
-HCL     4 mins          ███████████████████▓░░░░░   78.62 % 
-Go      1 min           ████▒░░░░░░░░░░░░░░░░░░░░   17.07 % 
+HCL     4 mins          ███████████████████████▓░   94.62 % 
 ```
 <!--END_SECTION:waka-->
 
