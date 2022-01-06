@@ -24,7 +24,11 @@ I'm Tjandrayana Setiawan a Software Engineer and Technology Enthusiast.
 
 <!--START_SECTION:waka-->
 ```text
-No Activity tracked this Week
+Go     2 hrs 59 mins   ███████████████░░░░░░░░░░   60.22 % 
+HTML   1 hr 41 mins    ████████▓░░░░░░░░░░░░░░░░   34.06 % 
+YAML   11 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   03.76 % 
+JSON   2 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   00.99 % 
+CSS    1 min           ░░░░░░░░░░░░░░░░░░░░░░░░░   00.43 % 
 ```
 <!--END_SECTION:waka-->
 
