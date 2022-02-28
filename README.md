@@ -23,9 +23,11 @@ I'm Tjandrayana Setiawan a Software Engineer and Technology Enthusiast.
 #### Coding Stats
 
 <!--START_SECTION:waka-->
+
 ```text
-No Activity tracked this Week
+No activity tracked
 ```
+
 <!--END_SECTION:waka-->
 
 
