@@ -51,7 +51,7 @@ I'm Tjandrayana Setiawan, a Software Engineer and Technology Enthusiast.
 
 <!--START_SECTION:waka-->
 
-```text
+```txt
 No activity tracked
 ```
 
