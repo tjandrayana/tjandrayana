@@ -3,8 +3,8 @@ name: Update README with Hackatime Stats
 on:
   workflow_dispatch:
   schedule:
-    # Runs every hour
-    - cron: "0 * * * *"
+    # Runs daily at 00:00 (midnight) UTC
+    - cron: "0 0 * * *"
 
 jobs:
   update-readme:
