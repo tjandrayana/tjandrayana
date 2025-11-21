@@ -3,7 +3,7 @@ name: Update README with Hackatime Stats
 on:
   workflow_dispatch:
   schedule:
-    # Runs at 12am UTC daily
+    # Runs every hour
     - cron: "0 * * * *"
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
         uses: athul/waka-readme@master
         with:
           WAKATIME_API_KEY: ${{ secrets.HACKATIME_API_KEY }}
-          WAKATIME_API_URL: https://hackatime.hackclub.com/api/v1
+          API_BASE_URL: https://hackatime.hackclub.com/api/v1
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SECTION_NAME: "waka"
           BLOCKS: "▄█▀█▄"
