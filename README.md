@@ -39,7 +39,7 @@ I'm **TJ**, a passionate Software Engineer who loves building innovative solutio
 </div>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com/?user=tjandrayana&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  <img src=".github/images/github-streak.svg" alt="GitHub Streak" onerror="this.style.display='none'" />
 </div>
 
 ---

@@ -1,0 +1,96 @@
+name: Update GitHub Streak Stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs every hour at minute 0
+    - cron: "0 * * * *"
+
+jobs:
+  update-streak:
+    name: Generate and update streak stats
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch streak stats image
+        id: fetch-streak
+        continue-on-error: true
+        run: |
+          mkdir -p .github/images
+          TEMP_FILE=$(mktemp)
+          
+          # Try to fetch the streak stats with timeout and retries
+          if curl -L "https://streak-stats.demolab.com/?user=tjandrayana&theme=tokyonight&hide_border=true" \
+            -o "$TEMP_FILE" \
+            --max-time 60 \
+            --retry 3 \
+            --retry-delay 5 \
+            --fail \
+            --silent \
+            --show-error; then
+            
+            # Validate the downloaded file
+            if [ -s "$TEMP_FILE" ] && grep -q "svg" "$TEMP_FILE"; then
+              mv "$TEMP_FILE" .github/images/github-streak.svg
+              echo "success=true" >> $GITHUB_OUTPUT
+              echo "✅ Successfully fetched streak stats"
+            else
+              rm -f "$TEMP_FILE"
+              echo "success=false" >> $GITHUB_OUTPUT
+              echo "❌ Downloaded file is invalid or empty"
+            fi
+          else
+            rm -f "$TEMP_FILE"
+            echo "success=false" >> $GITHUB_OUTPUT
+            echo "❌ Failed to fetch streak stats from service"
+          fi
+
+      - name: Check if image exists (fallback)
+        id: check-existing
+        run: |
+          if [ -f .github/images/github-streak.svg ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "✅ Existing streak image found, will keep it"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ No existing streak image found"
+          fi
+
+      - name: Commit and push if successful
+        if: steps.fetch-streak.outputs.success == 'true' || steps.check-existing.outputs.exists == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          if [ "${{ steps.fetch-streak.outputs.success }}" == "true" ]; then
+            git add .github/images/github-streak.svg
+            if git diff --staged --quiet; then
+              echo "No changes to commit"
+            else
+              git commit -m "📊 Update GitHub streak stats [skip ci]"
+              git push
+            fi
+          else
+            echo "⚠️ Keeping existing streak image, no update needed"
+          fi
+
+      - name: Create placeholder if needed
+        if: steps.fetch-streak.outputs.success != 'true' && steps.check-existing.outputs.exists != 'true'
+        run: |
+          echo "❌ Failed to fetch streak stats and no existing image found"
+          echo "Creating minimal placeholder SVG to prevent broken image"
+          mkdir -p .github/images
+          cat > .github/images/github-streak.svg << 'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg" width="1" height="1" style="display:none">
+            <title>GitHub Streak Stats</title>
+          </svg>
+          EOF
+          git add .github/images/github-streak.svg
+          git commit -m "📊 Add placeholder for streak stats [skip ci]" || true
+          git push || true
+          echo "Created invisible placeholder to prevent broken image display"
+
