@@ -2,6 +2,9 @@ name: Update GitHub Streak Stats
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
   schedule:
     # Runs daily at 00:00 (midnight) UTC
     - cron: "0 0 * * *"
