@@ -6,7 +6,7 @@
 
 [![GitHub followers](https://img.shields.io/github/followers/tjandrayana?label=Follow&style=for-the-badge&logo=github&color=blue)](https://github.com/tjandrayana?tab=followers)
 [![GitHub stars](https://img.shields.io/github/stars/tjandrayana?label=Stars&style=for-the-badge&logo=github&color=yellow)](https://github.com/tjandrayana)
-[![Profile Views](https://visitor-badge.glitch.me/badge?page_id=tjandrayana.tjandrayana&style=for-the-badge)](https://github.com/tjandrayana)
+[![Profile Views](https://komarev.com/ghpvc/?username=tjandrayana&color=blueviolet&style=for-the-badge)](https://github.com/tjandrayana)
 
 ---
 
@@ -39,7 +39,7 @@ I'm **TJ**, a passionate Software Engineer who loves building innovative solutio
 </div>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.vercel.app/?user=tjandrayana&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com/?user=tjandrayana&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
 </div>
 
 ---
@@ -47,20 +47,15 @@ I'm **TJ**, a passionate Software Engineer who loves building innovative solutio
 ## 💻 Coding Activity
 
 <div align="center">
-  
+
 ![GitHub Contribution Graph](https://github-readme-activity-graph.vercel.app/graph?username=tjandrayana&theme=react-dark&hide_border=true&area=true&color=38bdae&line=70a5fd&point=70a5fd&bg_color=1a1b27)
 
 </div>
 
-<div align="center">
-  
-![Hackatime Stats](https://github-readme-stats.hackclub.dev/api/wakatime?username=YOUR_HACKATIME_USER_ID&api_domain=hackatime.hackclub.com&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8&theme=tokyonight)
-
-</div>
 
 <!--START_SECTION:waka-->
 
-```txt
+```text
 No activity tracked
 ```
 
@@ -104,3 +99,4 @@ No activity tracked
 **Made with ❤️ by Tjandrayana Setiawan**
 
 </div>
+
