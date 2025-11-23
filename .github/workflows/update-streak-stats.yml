@@ -6,8 +6,8 @@ on:
     branches:
       - master
   schedule:
-    # Runs daily at 00:00 (midnight) UTC
-    - cron: "0 0 * * *"
+    # Runs every 30 minutes
+    - cron: "*/30 * * * *"
 
 jobs:
   update-streak:

@@ -60,9 +60,9 @@ I'm **TJ**, a passionate Software Engineer who loves building innovative solutio
 
 <!--START_SECTION:waka-->
 
-```text
+<!-- ```text
 No activity tracked
-```
+``` -->
 
 <!--END_SECTION:waka-->
 
