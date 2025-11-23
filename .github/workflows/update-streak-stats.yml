@@ -26,15 +26,21 @@ jobs:
           mkdir -p .github/images
           TEMP_FILE=$(mktemp)
           
+          # Add cache-busting timestamp to force fresh data
+          TIMESTAMP=$(date +%s)
+          
           # Try to fetch the streak stats with timeout and retries
-          if curl -L "https://streak-stats.demolab.com/?user=tjandrayana&theme=tokyonight&hide_border=true" \
+          # Using cache-busting parameter to ensure fresh data
+          if curl -L "https://streak-stats.demolab.com/?user=tjandrayana&theme=tokyonight&hide_border=true&_t=$TIMESTAMP" \
             -o "$TEMP_FILE" \
             --max-time 60 \
             --retry 3 \
             --retry-delay 5 \
             --fail \
             --silent \
-            --show-error; then
+            --show-error \
+            -H "Cache-Control: no-cache" \
+            -H "Pragma: no-cache"; then
             
             # Validate the downloaded file
             if [ -s "$TEMP_FILE" ] && grep -q "svg" "$TEMP_FILE"; then
@@ -72,10 +78,12 @@ jobs:
           if [ "${{ steps.fetch-streak.outputs.success }}" == "true" ]; then
             git add .github/images/github-streak.svg
             if git diff --staged --quiet; then
-              echo "No changes to commit"
+              echo "⚠️ No changes detected in streak stats - service may be returning cached data"
+              echo "The streak count might not have updated yet. The service may need more time to reflect recent GitHub activity."
             else
               git commit -m "📊 Update GitHub streak stats [skip ci]"
               git push
+              echo "✅ Streak stats updated and committed successfully"
             fi
           else
             echo "⚠️ Keeping existing streak image, no update needed"
