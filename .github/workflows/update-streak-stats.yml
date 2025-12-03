@@ -18,6 +18,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch streak stats image
         id: fetch-streak
@@ -76,13 +79,16 @@ jobs:
           git config --local user.name "GitHub Action"
           
           if [ "${{ steps.fetch-streak.outputs.success }}" == "true" ]; then
+            # Pull latest changes before committing to avoid conflicts
+            git pull --rebase origin master || git pull origin master
+            
             git add .github/images/github-streak.svg
             if git diff --staged --quiet; then
               echo "⚠️ No changes detected in streak stats - service may be returning cached data"
               echo "The streak count might not have updated yet. The service may need more time to reflect recent GitHub activity."
             else
               git commit -m "📊 Update GitHub streak stats [skip ci]"
-              git push
+              git push origin master
               echo "✅ Streak stats updated and committed successfully"
             fi
           else
@@ -92,6 +98,12 @@ jobs:
       - name: Create placeholder if needed
         if: steps.fetch-streak.outputs.success != 'true' && steps.check-existing.outputs.exists != 'true'
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Pull latest changes before committing to avoid conflicts
+          git pull --rebase origin master || git pull origin master
+          
           echo "❌ Failed to fetch streak stats and no existing image found"
           echo "Creating minimal placeholder SVG to prevent broken image"
           mkdir -p .github/images
@@ -102,6 +114,6 @@ jobs:
           EOF
           git add .github/images/github-streak.svg
           git commit -m "📊 Add placeholder for streak stats [skip ci]" || true
-          git push || true
+          git push origin master || true
           echo "Created invisible placeholder to prevent broken image display"
 
